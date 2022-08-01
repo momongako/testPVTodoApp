@@ -1,11 +1,15 @@
+import { Outlet, Link } from 'react-router-dom';
 const Nav = () => {
     return (
         <>
-            <ul>
-                <li><a class="active" href="#home">Home</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <nav>
+                <ul>
+                    <li><Link class="active" to="/">Home</Link></li>
+                    <li><Link to="/edit">Edit</Link></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <Outlet />
         </>
     )
 }
