@@ -33,20 +33,25 @@ const Edit = () => {
 
 
     const saveProduct = () => {
-
+        let method = "POST";
+        let id = "";
+        if (product.id) {
+            method = "PUT";
+            id = product.id;
+        }
 
         const requestOptions = {
-            method: "PUT",
+            method: method,
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(product),
         };
         fetch(
-            "https://62e7ba7b93938a545bd7d018.mockapi.io/testTodoApp/" + product.id,
+            "https://62e7ba7b93938a545bd7d018.mockapi.io/testTodoApp/" + id,
             requestOptions
         )
             .then((response) => response.json())
             .then((data) => {
-                navigate(-1);
+                navigate('/')
                 console.log(">>check dataEdit ", data);
             });
     };
@@ -57,7 +62,7 @@ const Edit = () => {
 
 
                 <form action="" method="post">
-                    <h2>Sign Up</h2>
+                    <h2>{product.length > 0 ? "Add New" : "Edit"} </h2>
                     <p>Please fill in this form to create an account!</p>
                     <hr />
                     <div className="form-group">
