@@ -72,7 +72,7 @@ const TableList = () => {
                 </table>
 
                 <div className='col col-4'>
-                    <Edit />
+                    <Edit data={datas} />
 
                 </div>
             </div>

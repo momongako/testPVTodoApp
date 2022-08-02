@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const Edit = () => {
+const Edit = (props) => {
     const params = useParams();
     const [product, setProduct] = useState([]);
     let navigate = useNavigate();
@@ -53,6 +53,7 @@ const Edit = () => {
             .then((data) => {
                 navigate('/')
                 console.log(">>check dataEdit ", data);
+                props.datas(data);
             });
     };
     console.log('>>> check  product data: ', product)
